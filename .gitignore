@@ -2,3 +2,5 @@ DAVIS/*
 .idea/*
 .idea
 DAVIS
+__pycache__
+train_parent_2.csv
