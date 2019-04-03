@@ -10,7 +10,7 @@ Please consider citing the paper if you use this code.
 import os
 import sys
 import tensorflow as tf
-slim = tf.contrib.slim
+# slim = tf.contrib.slim
 # Import OSVOS files
 root_folder = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.abspath(root_folder))
@@ -23,22 +23,22 @@ gpu_id = 0
 # Training parameters
 imagenet_ckpt = 'models/vgg_16.ckpt'
 logs_path = os.path.join(root_folder, 'models', 'OSVOS_parent')
-store_memory = True
-data_aug = True
+store_memory = False
+data_aug = False
 iter_mean_grad = 10
-max_training_iters_1 = 15000
-max_training_iters_2 = 30000
-max_training_iters_3 = 50000
+max_training_iters_1 = 25000 # 15000
+max_training_iters_2 = 50000 # 30000
+max_training_iters_3 = 90000 # 50000
 save_step = 5000
 test_image = None
-display_step = 100
+display_step = 20
 ini_learning_rate = 1e-8
 boundaries = [10000, 15000, 25000, 30000, 40000]
 values = [ini_learning_rate, ini_learning_rate * 0.1, ini_learning_rate, ini_learning_rate * 0.1, ini_learning_rate,
           ini_learning_rate * 0.1]
 
 # Define Dataset
-train_file = 'train_parent.txt'
+train_file = 'train_parent_ste.txt'
 dataset = Dataset(train_file, None, './DAVIS', store_memory=store_memory, data_aug=data_aug)
 
 # Train the network
